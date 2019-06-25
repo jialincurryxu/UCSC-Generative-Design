@@ -1,1 +1,2 @@
-# UCSC---Generative-Design
+# UCSC-Generative-Design
+Jialin Xu (Aka. Curry Xu)
