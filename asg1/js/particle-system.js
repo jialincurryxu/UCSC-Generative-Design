@@ -1,19 +1,18 @@
-asg1.particleSystem = function(pos) {
-    this.origin = pos.copy();
-    this.particles = [];
+asg1.particleSystem = function() {
+    //this.origin = pos.copy();
+    this.particles = new Array(1024);
 };
 
 asg1.particleSystem.prototype = {
-    addParticle: function(){
-        this.particles.push(new asg1.particle(this.origin));
+    intiParticle: function(){
+        for (let i = 0; i < particles.length; i++) {
+            let x = map(i, 0, 1024, 0, width * 2);
+            let position = createVector(x, 0);
+            particles[i] = new asg1.particle(position);
+            particles[i].isDead = false;
+        }
     },
     run: function(){
-        for (let i = this.particles.length-1; i >= 0; i--) {
-            let p = this.particles[i];
-            p.run();
-            if (p.isDead()) {
-                this.particles.splice(i, 1);
-            }
-        }
+        
     }
 }
