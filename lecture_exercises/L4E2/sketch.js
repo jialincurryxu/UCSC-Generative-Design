@@ -1,25 +1,16 @@
-
-let w, ruleset;
+let cellW = 10;
 
 function setup() {
-    createCanvas(1400, 750);
+  createCanvas(800,500);
+  strokeWeight(1);
 
-    w = 10;
-    ruleset = [0,1,0,1,1,0,1,0];
-    ca = new CellularAutomata(width/w, ruleset);
+  let gameWidth = width/cellW;
+  let gameHeight = height/cellW;
+
+  game = new GameOfLife(gameWidth, gameHeight);
 }
 
 function draw() {
-    ca.draw(w);
-    ca.generate();
-
-    if(ca.generation > height / w) {
-    	for (let i = 0; i < 7; i++){
-    		ruleset[i] = Math.round(Math.random());
-    	}
-    	console.log(ruleset);
-        ca = new CellularAutomata(width/w, ruleset);
-        clear();
-    }
-}
-
+    game.draw(cellW);
+    game.evolve();
+ }
