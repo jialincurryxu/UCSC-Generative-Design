@@ -1,3 +1,4 @@
+
 let w, ruleset;
 
 function setup() {
@@ -21,3 +22,4 @@ function draw() {
         clear();
     }
 }
+
