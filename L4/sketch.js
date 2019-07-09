@@ -1,23 +1,17 @@
-let k = 0.01;
-let timeX = 0;
-let timeY = 10000;
+let cellW = 10;
 
 function setup() {
-	createCanvas(500, 500);
+	createCanvas(2000, 2000);
+	strokeWeight(1);
+
+	let size = width/cellW;
+	let ruleset =[0,1,0,1,1,0,1,0];
+
+	ca = new CellularAutomata(size,ruleset);
 }
 
 function draw() {
-	clear();
-
-	background(200);
-
-	fill(51);
-
-	let x = noise (timeX) * width;
-	let y = noise (timeY) * height;
-
-	ellipse(x, y, 24, 24);
-
-	timeX += k;
-	timeY += k;
+	ca.draw(cellW);
+	ca.evolve();
 }
+
