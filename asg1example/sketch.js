@@ -8,17 +8,19 @@
 var mic, soundFile; // input sources, press T to toggleInput()
 
 var fft;
-var smoothing = 0.8; // play with this, between 0 and .99
+var smoothing = 0.9; // play with this, between 0 and .99
 var binCount = 1024; // size of resulting FFT array. Must be a power of 2 between 16 an 1024
 var particles =  new Array(binCount);
 
-
+function preload(){
+  //soundFile = loadSound('../asg1/sound/A Himitsu - Adventures [Argofox].mp3');
+  soundFile = loadSound('../asg1/sound/03 - 激白.flac');
+  soundFile.setVolume(0.2);
+}
 function setup() {
   c = createCanvas(windowWidth, windowHeight);
   noStroke();
 
-  soundFile = loadSound('../asg1/sound/A Himitsu - Adventures [Argofox].mp3');
-  //soundFile.autoplay(true);
   mic = new p5.AudioIn();
   mic.start();
 
@@ -101,7 +103,7 @@ function windowResized() {
 }
 
 function keyPressed() {
-  if (key == 'T') {
+  if (key == 't') {
     toggleInput();
   }
 }

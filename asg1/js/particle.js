@@ -1,28 +1,30 @@
 asg1.particle = function(pos){
-    //this.acceleration = createVector(0, 0.05);
-    this.speed = createVector(0, random(0,10));
-    this.position = pos.copy();
-    this.lifespan = 255;
-    this.color = [random(0, 255), random(0,255), random(0,255)];
+  this.position = pos;
+  this.scale = random(0, 1);
+  this.speed = createVector(0, random(0, 10) );
+  this.color = [random(0, 255), random(0,255), random(0,255)];
+  this.isDead = true;
 };
 
 asg1.particle.prototype={
-    run: function(){
-        this.update();
-        this.display();
+    run: function(level){
+        this.update(level);
+        this.draw();
     },
-    update: function(){
-        //this.speed.add(this.acceleration);
-        this.position.add(this.speed);
-        this.lifespan -= 2;
+    update: function(level){
+        this.position.y += this.speed.y / (level*2);
+        if (this.position.y > height) {
+            this.position.y = 0;
+        }
+        if (this.position.y > height) {
+            this.isDead = true;
+        }
+        this.diameter = map(level, 0, 1, 0, 100) * this.scale;
+
     },
-    display: function(){
-        stroke(200, this.lifespan);
-        strokeWeight(2);
-        fill(this.color);
-        ellipse(this.position.x, this.position.y, 12, 12);
-    },
-    isDead: function(){
-        return this.lifespan < 0;
+    draw: function(){
+        if (!this.isDead){
+          fill(this.color);
+          ellipse(this.position.x, this.position.y, this.diameter, this.diameter);}
     }
 }
