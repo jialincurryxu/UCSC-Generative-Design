@@ -1,0 +1,17 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>UCSC-Generative-Design-Asg2</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	
+</head>
+<body>
+	<h1 id="title">UCSC-Generative-Design-Asg2</h1>
+	<p id="mainP">This is my work done for the second project. It uses p5.js & p5.dom.js to generate "A voxel-based world consists of 3D grid of height h, width w and depth d, where h, w and d are integer numbers representing amount of fixed-size cubes"(quote the Canvas page). </p><br>
+	<p>This project uses 2D Perlin Noise to generate a "height" for each elements in a 2D array, based on their x & y axis. Then map each of the elements based on their height with a biome type(in my case, they are water, grass, rock and snow). In the gif bellow, it shows one random generated world, with blue water as the lowest level of the world, then green grass, grey rock and the top white snow. Due to the nature of the Perlin Noise, the generated world can be smooth.</p><br>
+	<p2>I used cuboid for the project as the way I coded it, it might have two blocks with a hight difference of 2 (the way I round up the height is not very nice)</p2><br>
+	<img id="the_img" src="asg2.gif" style="vertical-align:top"></img><br>
+</body>
+</html>
+
