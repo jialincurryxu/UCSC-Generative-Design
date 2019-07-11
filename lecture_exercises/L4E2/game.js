@@ -58,7 +58,10 @@ class GameOfLife {
         // If cell is alive
         if(this.cells[x][y] == 1) {
             // It will die due to overpopulation or loneliness
-            if(aliveNeighbors >= 4 || aliveNeighbors <= 1) {
+            let r = Math.random();
+            if(aliveNeighbors >= 4 && r <= 0.8) {
+                return 0;
+            } else if (aliveNeighbors <= 1 && r <= 0.6) {
                 return 0;
             }
         }
